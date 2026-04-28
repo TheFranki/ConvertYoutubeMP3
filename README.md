@@ -15,3 +15,14 @@ Crea una carpeta para el proyecto y coloca los archivos esenciales:
 Abre una terminal en la carpeta del proyecto y ejecuta:
 npm init -y
 npm install express helmet express-rate-limit
+
+# Para que funcione correctamente debe quedar de esta manera
+├── public/              # Archivos del Frontend
+│   ├── index.html       # Interfaz visual
+│   ├── app.js           # Lógica del cliente
+│   └── style.css        # Diseño
+├── server.js            # Servidor Backend (Node.js)
+├── yt-dlp.exe           # Ejecutable de descarga
+├── ffmpeg.exe           # Ejecutable de conversión
+├── package.json         # Dependencias
+└── README.md            # Este documento
