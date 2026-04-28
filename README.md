@@ -5,7 +5,7 @@ Este es un convertidor de audio de YouTube a MP3 basado en **Node.js**. Permite 
 Antes de comenzar, asegúrate de tener instalado lo siguiente en tu PC:
 1. https://nodejs.org/ (Versión v18 o superior recomendada).
 2. https://www.gyan.dev/ffmpeg/builds/ (Esencial para la conversión de audio).
-3. [yt-dlp](https://github.com/yt-dlp/yt-dlp) (El motor que descarga los videos).
+3. https://github.com/yt-dlp/yt-dlp/releases (El motor que descarga los videos).
 
 # Instalación en una nueva PC
 Sigue estos pasos si estás clonando el proyecto en una computadora nueva:
