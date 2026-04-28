@@ -1,1 +1,17 @@
-# ConvertYoutubeMP3
+# YouTube to MP3 Converter (Web App)
+Este es un convertidor de audio de YouTube a MP3 basado en **Node.js**. Permite descargar música directamente desde el navegador de tu celular o PC mediante un servidor local o un túnel seguro.
+
+# Instalación en una nueva PC
+Sigue estos pasos si estás clonando el proyecto en una computadora nueva:
+
+# 1. Preparar la carpeta del proyecto
+Crea una carpeta para el proyecto y coloca los archivos esenciales:
+* `server.js`
+* `public/` (carpeta que contiene `index.html`, `app.js`, `style.css`)
+* `yt-dlp.exe` (Colocar en la raíz del proyecto)
+* `ffmpeg.exe` (Colocar en la raíz del proyecto)
+
+# 2. Instalar dependencias de Node.js
+Abre una terminal en la carpeta del proyecto y ejecuta:
+npm init -y
+npm install express helmet express-rate-limit
