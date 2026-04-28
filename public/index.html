@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter MP3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Convertidor Youtube a MP3</h1>
+
+        <div class="caja-Input">
+            <input type="text" id="urlInput" placeholder="Pegar el enlace.....">
+            <button id="btnConvertir">Convertir</button> 
+            <button id="btnNuevo" style="display: none; background-color: #555;">Convertir otro</button>
+            <div id="contenedor-carga" style="display: none;">
+            <div class="spinner"></div>
+            <div class="barra-progreso-fondo">
+                <div id="barra-progreso-relleno" style="width: 0%; height: 100%; background: red;"></div>
+            </div>
+            <p id="porcentaje">0%</p>
+            </div>
+        </div>
+
+        <p id="mensajeEstado"></p>
+        <div id="info-video" style="display: none; margin-top: 20px; text-align: center;">
+        <h3 id="txtTitulo" style="color: white; margin-bottom: 5px;"></h3>
+        <p id="txtCanal" style="color: #aaa; margin: 0; font-weight: bold;"></p>
+    </div>
+    <audio id="reproductor" controls style="display: none;"></audio>
+        <button id="btnGuardar" style="display: none; margin-top: 20px; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Descargar</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
