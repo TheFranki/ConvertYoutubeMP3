@@ -19,21 +19,9 @@ Crea una carpeta para el proyecto y coloca los archivos esenciales:
 
 # 2. Instalar dependencias de Node.js
 Abre una terminal en la carpeta del proyecto y ejecuta:
-npm init -y
+nom install express
 npm install express helmet express-rate-limit
+npm init -y
 
-# Para que funcione correctamente debe quedar de esta manera la Estructura
-├── node_modules         # Librerías instaladas
-├── public/              # Archivos del Frontend
-│   ├── app.js           # Lógica del cliente
-│   ├── index.html       # Interfaz visual
-│   └── style.css        # Diseño
-├── ffmpeg.exe           # Ejecutable de conversión
-├── package-lock.json    # Lista de librerías
-├── package.json         # Dependencias
-├── server.js            # Servidor Backend (Node.js)
-├── yt-dlp.exe           # Ejecutable de descarga
-└── README.md            # Este documento
-
-# Nota
-Cada 10 minutos se elimina la música almacenada
+# 3. Ejecutar estando todo instalado
+node server.js
