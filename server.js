@@ -8,6 +8,8 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const port = 3000;
 
+app.set('trust proxy', 1); 
+
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -21,16 +23,14 @@ app.use(helmet({
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, 
-    max: 10, 
+    max: 15,
     message: { error: "Demasiadas peticiones. Intenta más tarde." }
 });
 app.use('/api/', limiter);
 
 app.disable('x-powered-by');
-
 app.use(express.static('public'));
 app.use(express.json());
-
 
 app.get('/api/download-file', (req, res) => {
     const fileName = req.query.name;
@@ -38,9 +38,7 @@ app.get('/api/download-file', (req, res) => {
 
     if (fs.existsSync(filePath)) {
         res.download(filePath, fileName, (err) => {
-            if (err) {
-                console.error("Error al descargar:", err);
-            }
+            if (err) console.error("Error al descargar:", err);
         });
     } else {
         res.status(404).send('El archivo ya no existe en el servidor.');
@@ -68,10 +66,9 @@ app.post('/api/descargar', (req, res) => {
         const fileExit = path.join(__dirname, 'public', fileName);
 
         console.log(`[2] Título procesado: ${safeTitle}`);
+        console.log(`[3] Iniciando descarga y conversión...`);
 
         const command = `.\\yt-dlp.exe -N 5 -x --audio-format mp3 --audio-quality 0 --ffmpeg-location .\\ffmpeg.exe --no-playlist -o "${fileExit}" "${url}"`;
-
-        console.log(`[3] Iniciando descarga y conversión (esto puede tomar unos segundos)...`);
 
         exec(command, (error) => {
             if (error) {
@@ -79,10 +76,10 @@ app.post('/api/descargar', (req, res) => {
                 return res.status(500).json({ success: false });
             }
             
-            console.log(`[4] ¡Éxito! Archivo listo para la web.`);
+            console.log(`[4] Música lista.`);
             res.json({ 
                 success: true, 
-                archive: `/${fileName}`, 
+                archive: fileName, 
                 title: title,
                 channel: channelName
             });
@@ -90,13 +87,13 @@ app.post('/api/descargar', (req, res) => {
             setTimeout(() => {
                 if (fs.existsSync(fileExit)) {
                     fs.unlinkSync(fileExit);
-                    console.log(`[5] Limpieza: ${fileName} borrado del servidor.`);
+                    console.log(`[5] Limpieza: ${fileName} borrado.`);
                 }
             }, 600000);
         });
     });
 });
 
-app.listen(port, () => {
-    console.log(`Servidor en http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor activo en: http://localhost:${port}`);
 });
