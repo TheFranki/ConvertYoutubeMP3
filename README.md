@@ -12,14 +12,14 @@ Sigue estos pasos si estás clonando el proyecto en una computadora nueva:
 
 # 1. Preparar la carpeta del proyecto
 Crea una carpeta para el proyecto y coloca los archivos esenciales:
-* `server.js`
 * `public/` (carpeta que contiene `index.html`, `app.js`, `style.css`)
 * `yt-dlp.exe` (Colocar en la raíz del proyecto)
 * `ffmpeg.exe` (Colocar en la raíz del proyecto)
+* * `server.js` (Colocar en la raíz del proyecto)
 
 # 2. Instalar dependencias de Node.js
 Abre una terminal en la carpeta del proyecto y ejecuta:
-nom install express
+npm install express
 npm install express helmet express-rate-limit
 npm init -y
 
