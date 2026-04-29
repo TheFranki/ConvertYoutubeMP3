@@ -19,9 +19,9 @@ Crea una carpeta para el proyecto y coloca los archivos esenciales:
 
 # 2. Instalar dependencias de Node.js
 Abre una terminal en la carpeta del proyecto y ejecuta:
-npm install express /
-npm install express helmet express-rate-limit /
-npm init -y
+* npm install express
+* npm install express helmet express-rate-limit
+* npm init -y
 
 # 3. Ejecutar estando todo instalado
 node server.js
